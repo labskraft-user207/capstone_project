@@ -1,0 +1,121 @@
+<div class="manage-rewards-container">
+  <div class="manage-rewards-header">
+    <h2>Create & Manage Rewards</h2>
+    <button class="add-reward-btn" (click)="onAddNewReward()">+ New Reward</button>
+  </div>
+
+  <!-- Search & Filter -->
+  <div class="rewards-filter-row">
+    <input type="text" class="filter-input" placeholder="Search by name or category..." [(ngModel)]="searchTerm" />
+    <select class="filter-select" [(ngModel)]="filterStatus">
+      <option value="All">Status: All</option>
+      <option value="Active">Active</option>
+      <option value="Inactive">Inactive</option>
+    </select>
+    <input type="number" class="filter-input" placeholder="Min Points" min="0" [(ngModel)]="minPoints" />
+    <input type="number" class="filter-input" placeholder="Max Points" min="0" [(ngModel)]="maxPoints" />
+    <button class="filter-btn" (click)="onFilter()">Filter</button>
+  </div>
+
+  <!-- Create/Edit Reward Form -->
+  <form class="reward-form" *ngIf="showForm" (ngSubmit)="onSaveReward()">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="rewardName">Reward Name</label>
+        <input type="text" id="rewardName" placeholder="Enter reward name" required [(ngModel)]="newReward.rewardName" name="rewardName"/>
+      </div>
+      <div class="form-group">
+        <label for="rewardType">Reward Type</label>
+        <select id="rewardType" [(ngModel)]="newReward.rewardType" name="rewardType">
+          <option>Gift Card</option>
+          <option>Coupon Code</option>
+          <option>Physical Item</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="rewardCategory">Category/Tag</label>
+        <input type="text" id="rewardCategory" placeholder="e.g. Food, Travel, Gift Card" [(ngModel)]="newReward.category" name="rewardCategory"/>
+      </div>
+      <div class="form-group">
+        <label for="rewardStatus">Status</label>
+        <select id="rewardStatus" [(ngModel)]="newReward.status" name="rewardStatus">
+          <option>Active</option>
+          <option>Inactive</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="rewardDesc">Description</label>
+        <textarea id="rewardDesc" rows="2" placeholder="Describe the reward" [(ngModel)]="newReward.description" name="rewardDesc"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="rewardImage">Image URL</label>
+        <input type="text" id="rewardImage" placeholder="Paste image URL" [(ngModel)]="newReward.imageUrl" name="rewardImage"/>
+      </div>
+      <div class="form-group">
+        <label for="pointsRequired">Points Required</label>
+        <input type="number" id="pointsRequired" min="0" placeholder="e.g. 1000" required [(ngModel)]="newReward.pointsRequired" name="pointsRequired"/>
+      </div>
+      <div class="form-group">
+        <label for="inventoryQty">Inventory Quantity</label>
+        <input type="number" id="inventoryQty" min="0" placeholder="e.g. 50" [(ngModel)]="newReward.inventoryQuality" name="inventoryQty"/>
+      </div>
+      <div class="form-group">
+        <label for="expiryDate">Expiry Date</label>
+        <input type="date" id="expiryDate" [(ngModel)]="newReward.expiryDate" name="expiryDate"/>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="save-btn">{{isEditing ? 'Update' : 'Save'}} Reward</button>
+      <button type="button" class="reset-btn" (click)="showForm = false">Cancel</button>
+    </div>
+  </form>
+
+  <!-- Bulk Actions -->
+  <div class="bulk-actions-row">
+    <input type="checkbox" id="selectAll" [(ngModel)]="selectAll" (change)="onSelectAllChange()" />
+    <label for="selectAll">Select All</label>
+    <button class="bulk-btn" (click)="onBulkActivate()">Activate</button>
+    <button class="bulk-btn" (click)="onBulkDeactivate()">Deactivate</button>
+    <button class="bulk-btn delete" (click)="onBulkDelete()">Delete</button>
+  </div>
+
+  <!-- Rewards List Table -->
+  <div class="rewards-list-section">
+    <h3>Existing Rewards</h3>
+    <table class="rewards-table">
+      <thead>
+        <tr>
+          <th><input type="checkbox" [(ngModel)]="selectAll" (change)="onSelectAllChange()" /></th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Points</th>
+          <th>Category</th>
+          <th>Status</th>
+          <th>Inventory</th>
+          <th>Expiry</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reward of filteredRewards">
+          <td><input type="checkbox" [(ngModel)]="reward.selected" /></td>
+          <td><img [src]="reward.imageUrl" alt="{{reward.rewardName}}" class="reward-thumb" /></td>
+          <td>{{reward.rewardName}}</td>
+          <td>{{reward.rewardType}}</td>
+          <td>{{reward.pointsRequired}}</td>
+          <td>{{reward.category}}</td>
+          <td><span class="status-badge" [ngClass]="{'active': reward.status === 'Active', 'inactive': reward.status === 'Inactive'}">{{reward.status}}</span></td>
+          <td>{{reward.inventoryQuality}}</td>
+          <td>{{reward.expiryDate | date:'yyyy-MM-dd'}}</td>
+          <td>
+            <button class="edit-btn" (click)="onEditReward(reward)">Edit</button>
+            <button class="delete-btn" (click)="onDeleteReward(reward)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

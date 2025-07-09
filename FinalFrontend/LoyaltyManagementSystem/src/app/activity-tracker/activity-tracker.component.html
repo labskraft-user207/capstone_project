@@ -1,0 +1,69 @@
+<div class="activity-tracker-container">
+  <div class="activity-tracker-header">
+    <h2>Activity Tracker</h2>
+    <div class="tracker-date-range">
+      <button class="date-btn" [class.active]="viewMode === 'daily'" (click)="setView('daily')">Daily</button>
+      <button class="date-btn" [class.active]="viewMode === 'weekly'" (click)="setView('weekly')">Weekly</button>
+    </div>
+  </div>
+
+  <div class="summary-cards">
+    <div class="summary-card points-earned">
+      <div class="summary-label">Points Earned</div>
+      <div class="summary-value">+{{ summary.pointsEarned }}</div>
+      <div class="summary-period">{{ viewMode | titlecase }}</div>
+    </div>
+    <div class="summary-card goals-progress">
+      <div class="summary-label">Goal Progress</div>
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="summary.goalProgress"></div>
+      </div>
+      <div class="progress-label">{{ summary.goalCurrent }}/{{ summary.goalTotal }} pts</div>
+    </div>
+    <div class="summary-card streaks">
+      <div class="summary-label">Streak</div>
+      <div class="summary-value">{{ summary.streak }} days</div>
+      <div class="badge streak-badge">🔥</div>
+    </div>
+  </div>
+
+  <div class="activity-checklist-section">
+    <h3>Activity Checklist</h3>
+    <table class="activity-checklist-table">
+      <tr>
+        <th>Activity</th>
+        <th>Status</th>
+      </tr>
+      <tr *ngFor="let activity of activityChecklist">
+        <td>{{ activity.label }}</td>
+        <td>
+          <span [class.completed]="activity.completed">{{ activity.completed ? 'Completed' : 'Pending' }}</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="completion-rate-section">
+    <h3>Completion Rate per Activity Type</h3>
+    <div class="completion-bars">
+      <div class="completion-bar" *ngFor="let rate of completionRates">
+        <span>{{ rate.type }}</span>
+        <div class="bar-bg">
+          <div class="bar-fill" [style.width.%]="rate.percent"></div>
+        </div>
+        <span class="bar-label">{{ rate.percent }}%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="push-notifications-section">
+    <h3>Push Notifications</h3>
+    <div class="push-toggle-row">
+      <label class="switch">
+        <input type="checkbox" [(ngModel)]="pushEnabled" (change)="onPushToggle()" />
+        <span class="slider"></span>
+      </label>
+      <span>Enable goal reminders</span>
+    </div>
+  </div>
+</div>

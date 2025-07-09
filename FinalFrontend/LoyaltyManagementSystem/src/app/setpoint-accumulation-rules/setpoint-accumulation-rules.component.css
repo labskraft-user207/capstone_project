@@ -1,0 +1,264 @@
+.accumulation-rules-container {
+  max-width: 950px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(67, 206, 162, 0.10);
+  padding: 2rem 2.5rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.rules-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.rules-header h2 {
+  color: #185a9d;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.save-btn {
+  background: #43cea2;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.save-btn:hover {
+  background: #185a9d;
+  transform: scale(1.05);
+}
+
+.rules-section, .promotions-section, .tier-section, .versioning-section, .preview-section {
+  margin-bottom: 2rem;
+}
+
+.rules-section h3,
+.promotions-section h3,
+.tier-section h3,
+.versioning-section h3,
+.preview-section h3 {
+  color: #185a9d;
+  margin-bottom: 1rem;
+}
+
+.rules-table, .tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7fafd;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #43cea211;
+  margin-bottom: 1rem;
+}
+
+.rules-table th, .rules-table td,
+.tier-table th, .tier-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+}
+
+.rules-table th, .tier-table th {
+  background: #185a9d;
+  color: #fff;
+  font-weight: 700;
+}
+
+.points-input, .currency-input, .limit-input {
+  width: 60px;
+  margin-right: 0.3rem;
+  border: 1px solid #43cea2;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 1rem;
+}
+
+.promo-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.promo-name {
+  flex: 2;
+  min-width: 180px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+}
+
+.promo-date, .promo-multiplier {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+}
+
+.add-promo-btn {
+  background: #185a9d;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.add-promo-btn:hover {
+  background: #43cea2;
+}
+
+.active-promos-list {
+  margin-top: 0.5rem;
+}
+
+.active-promo {
+  background: #f7fafd;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 0.7rem;
+  box-shadow: 0 1px 4px #43cea211;
+}
+
+.promo-title {
+  font-weight: 600;
+  color: #185a9d;
+  min-width: 180px;
+}
+
+.promo-dates {
+  color: #888;
+  min-width: 180px;
+}
+
+.promo-multiplier {
+  color: #43cea2;
+  font-weight: 600;
+  min-width: 60px;
+}
+
+.remove-promo-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.3rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.remove-promo-btn:hover {
+  background: #c0392b;
+}
+
+.tier-badge {
+  padding: 0.3rem 1.2rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  color: #fff;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.tier-badge.gold { background: #ffd700; color: #444; }
+.tier-badge.silver { background: #b0c4de; color: #444; }
+.tier-badge.bronze { background: #cd7f32; color: #fff; }
+
+.version-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.version-item {
+  background: #f7fafd;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  box-shadow: 0 1px 4px #43cea211;
+}
+
+.revert-btn {
+  background: #b2bec3;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.3rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.revert-btn:hover {
+  background: #636e72;
+}
+
+.preview-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.preview-amount, .preview-tier {
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+}
+
+.preview-btn {
+  background: #43cea2;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.preview-btn:hover {
+  background: #185a9d;
+}
+
+.preview-result {
+  color: #185a9d;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .accumulation-rules-container {
+    padding: 1rem 0.5rem;
+  }
+  .promo-row, .preview-row {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .rules-table th, .rules-table td,
+  .tier-table th, .tier-table td {
+    padding: 0.5rem 0.5rem;
+  }
+}

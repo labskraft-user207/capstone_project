@@ -1,0 +1,65 @@
+<div class="pointshistory-container">
+  <div class="pointshistory-header">
+    <h2>Points History</h2>
+    <div class="pointshistory-controls">
+      <input type="text" class="search-input" placeholder="Search by Order ID or Activity..." [(ngModel)]="searchTerm" (input)="applyFilters()" />
+      <select class="filter-select" [(ngModel)]="activityFilter" (change)="applyFilters()">
+        <option value="all">All Activities</option>
+        <option value="Purchase">Purchase</option>
+        <option value="Review">Review</option>
+        <option value="Referral">Referral</option>
+      </select>
+      <select class="sort-select" [(ngModel)]="sortOption" (change)="applyFilters()">
+        <option value="date-desc">Sort by Date (Newest)</option>
+        <option value="date-asc">Sort by Date (Oldest)</option>
+        <option value="points-desc">Sort by Points (High to Low)</option>
+        <option value="points-asc">Sort by Points (Low to High)</option>
+        <option value="category">Sort by Category</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="history-list">
+    <div class="history-item" *ngFor="let item of pagedHistoryItems; let i = index">
+      <div class="history-main">
+        <div class="activity-type" [ngClass]="item.pointType">{{ item.pointType }}</div>
+        <div class="activity-info">
+          <div class="activity-title">
+            {{ item.pointType }} Program
+            <span *ngIf="item.orderId"><strong> | Order ID:</strong> {{ item.orderId }}</span>
+          </div>
+          <div class="activity-date">{{ item.pointGainedOn | date: 'yyyy-MM-dd' }}</div>
+        </div>
+        <div class="activity-points positive">+{{ item.pointGained }} pts</div>
+        <button class="details-btn" (click)="openDetails(i + (currentPage-1)*pageSize)">Details</button>
+      </div>
+    </div>
+    <div *ngIf="pagedHistoryItems.length === 0" class="no-results">
+      No records found.
+    </div>
+  </div>
+
+  <!-- Overlay Popup -->
+  <div class="overlay" *ngIf="showPopup">
+    <div class="popup">
+      <button class="close-btn" (click)="closePopup()">&times;</button>
+      <h3>Order Details</h3>
+      <div *ngIf="selectedItem">
+        <div><strong>Item:</strong> {{ selectedItem.item }}</div>
+        <div><strong>Points Logic:</strong> {{ selectedItem.logic }}</div>
+        <div *ngIf="selectedItem.orderValue"><strong>Order Value:</strong> {{ selectedItem.orderValue }}</div>
+        <div *ngIf="selectedItem.reviewId"><strong>Review ID:</strong> {{ selectedItem.reviewId }}</div>
+        <div *ngIf="selectedItem.orderId"><strong>Order ID:</strong> {{ selectedItem.orderId }}</div>
+        <div *ngIf="selectedItem.referredUserMailId"><strong>Referred User:</strong> {{ selectedItem.referredUserMailId }}</div>
+        <div><strong>Points Earned:</strong> {{ selectedItem.pointGained }}</div>
+        <div><strong>Date:</strong> {{ selectedItem.pointGainedOn | date: 'yyyy-MM-dd' }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination-row">
+    <button class="pagination-btn" [disabled]="currentPage === 1" (click)="prevPage()">&laquo; Prev</button>
+    <span class="pagination-info">Page {{currentPage}} of {{totalPages}}</span>
+    <button class="pagination-btn" [disabled]="currentPage === totalPages" (click)="nextPage()">Next &raquo;</button>
+  </div>
+</div>

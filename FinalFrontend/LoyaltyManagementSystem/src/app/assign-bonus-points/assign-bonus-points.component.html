@@ -1,0 +1,112 @@
+<div class="assign-bonus-container">
+  <div class="assign-bonus-header">
+    <h2>Assign Bonus Points</h2>
+  </div>
+
+  <!-- Search & Select User -->
+  <div class="user-search-section">
+    <input type="text" class="user-search-input" placeholder="Search user by name or ID..." [(ngModel)]="searchTerm" (input)="searchUsers()" />
+    <button class="search-btn" (click)="searchUsers()">Search</button>
+    <div class="user-dropdown" *ngIf="filteredUsers.length && searchTerm">
+      <div class="user-option" *ngFor="let user of filteredUsers" (click)="selectUser(user)">
+        {{ user.username }} (ID: {{ user.id }})
+      </div>
+    </div>
+  </div>
+
+  <!-- Assign Bonus Points Form -->
+  <form class="bonus-form" (ngSubmit)="assignBonusPoints()">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="selectedUser">Selected User</label>
+        <input type="text" id="selectedUser" [value]="selectedUser?.username || ''" placeholder="Select a user..." readonly />
+      </div>
+      <div class="form-group">
+        <label for="bonusPoints">Bonus Points</label>
+        <input type="number" id="bonusPoints" min="1" placeholder="e.g. 100" required [(ngModel)]="bonusPoints" name="bonusPoints" />
+      </div>
+      <div class="form-group">
+        <label for="reason">Reason</label>
+        <select id="reason" [(ngModel)]="reason" name="reason">
+          <option value="">Select</option>
+          <option>Festival Gift</option>
+          <option>Complaint Resolution</option>
+          <option>Promotion</option>
+          <option>Other</option>
+        </select>
+        <input *ngIf="reason === 'Other'" type="text" id="customReason" [(ngModel)]="customReason" name="customReason" placeholder="Custom reason (if Other)" style="margin-top:0.5rem;" />
+      </div>
+      <div class="form-group">
+        <label for="activity">Associated Activity</label>
+        <input type="text" id="activity" [(ngModel)]="activity" name="activity" placeholder="e.g. Diwali Bonus" />
+      </div>
+      <div class="form-group">
+        <label for="expiryDate">Expiration Date (optional)</label>
+        <input type="date" id="expiryDate" [(ngModel)]="expiration" name="expiration" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-actions">
+        <button type="submit" class="assign-btn">Assign Points</button>
+        <button type="button" class="reset-btn" (click)="resetForm()">Reset</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Bonus Assignment List -->
+  <div class="bonus-assignment-section">
+    <h3>Bonus Assignments</h3>
+    <table class="bonus-table">
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Bonus Points</th>
+          <th>Reason</th>
+          <th>Activity</th>
+          <th>Expiration</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let a of assignments">
+          <td>{{ a.userId }}</td>
+          <td>{{ a.bonusPoints }}</td>
+          <td>{{ a.reason }}</td>
+          <td>{{ a.associatedActivity }}</td>
+          <td>{{ a.expirationDate | date:'yyyy-MM-dd' }}</td>
+          <td><span class="status-badge" [ngClass]="{'pending': a.status === 'Pending Approval', 'approved': a.status === 'Approved'}">{{ a.status }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bonus History Modal -->
+  <div class="bonus-history-modal" *ngIf="showHistoryModal">
+    <div class="modal-content">
+      <h3>Bonus Points History</h3>
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>User ID</th>
+            <th>Bonus Points</th>
+            <th>Reason</th>
+            <th>Activity</th>
+            <th>Expiration</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let h of bonusHistory">
+            <td>{{ h.userId }}</td>
+            <td>{{ h.bonusPoints }}</td>
+            <td>{{ h.reason }}</td>
+            <td>{{ h.associatedActivity }}</td>
+            <td>{{ h.expirationDate | date:'yyyy-MM-dd' }}</td>
+            <td><span class="status-badge" [ngClass]="{'pending': h.status === 'Pending Approval', 'approved': h.status === 'Approved'}">{{ h.status }}</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="close-btn" (click)="showHistoryModal = false">Close</button>
+    </div>
+  </div>
+</div>

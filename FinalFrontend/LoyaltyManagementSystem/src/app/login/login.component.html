@@ -1,0 +1,87 @@
+<div class="login-container">
+  <form *ngIf="showLogin" (ngSubmit)="login()" #loginForm="ngForm" class="login-form">
+    <h2 class="login-title">Login</h2>
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        type="text"
+        name="username"
+        [(ngModel)]="username"
+        required
+        autocomplete="username"
+        [class.filled]="username"
+      />
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        autocomplete="current-password"
+        [class.filled]="password"
+      />
+    </div>
+    <button type="submit" [disabled]="!loginForm.form.valid" class="login-btn">
+      Login
+    </button>
+    <div class="toggle-link">
+      Don't have an account?
+      <a (click)="toggleForm()" href="javascript:void(0)">Register</a>
+    </div>
+  </form>
+
+  <form *ngIf="!showLogin" (ngSubmit)="register()" #registerForm="ngForm" class="register-form">
+    <h2 class="register-title">Register</h2>
+    <div class="input-group">
+      <label for="reg-username">Username</label>
+      <input
+        id="reg-username"
+        type="text"
+        name="regUsername"
+        [(ngModel)]="regUsername"
+        required
+        autocomplete="username"
+        [class.filled]="regUsername"
+      />
+    </div>
+    <div class="input-group">
+      <label for="reg-password">Password</label>
+      <input
+        id="reg-password"
+        type="password"
+        name="regPassword"
+        [(ngModel)]="regPassword"
+        required
+        autocomplete="new-password"
+        [class.filled]="regPassword"
+      />
+    </div>
+    <div class="input-group">
+    <label for="reg-confirm-password">Confirm Password</label>
+    <input
+      id="reg-confirm-password"
+      type="password"
+      name="regConfirmPassword"
+      [(ngModel)]="regConfirmPassword"
+      required
+      autocomplete="new-password"
+      [class.filled]="regConfirmPassword"
+    />
+    <div *ngIf="regPassword && regConfirmPassword && regPassword !== regConfirmPassword" class="error-msg">
+      Passwords do not match.
+    </div>
+    </div>
+  
+    <button type="submit" [disabled]="!registerForm.form.valid || regPassword !== regConfirmPassword"class="register-btn">
+      Register
+    </button>
+    <div class="toggle-link">
+      Already have an account?
+      <a (click)="toggleForm()" href="javascript:void(0)">Login</a>
+    </div>
+  </form>
+</div>

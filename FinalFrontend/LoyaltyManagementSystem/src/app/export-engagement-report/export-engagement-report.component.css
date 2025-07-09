@@ -1,0 +1,195 @@
+.export-report-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(67, 206, 162, 0.10);
+  padding: 2rem 2.5rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.export-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.export-header h2 {
+  color: #185a9d;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.role-badge {
+  background: #43cea2;
+  color: #fff;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1.1rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.section h3 {
+  color: #185a9d;
+  margin-bottom: 1rem;
+}
+
+.report-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.report-types label {
+  background: #f7fafd;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  color: #185a9d;
+  cursor: pointer;
+  box-shadow: 0 1px 4px #43cea211;
+  transition: background 0.2s;
+}
+
+.report-types label:hover {
+  background: #43cea2;
+  color: #fff;
+}
+
+.date-range-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.date-range-row select,
+.date-range-row input[type="date"] {
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+}
+
+.filters-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filters-row select,
+.filters-row input[type="text"],
+.filters-row input[type="number"] {
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+}
+
+.columns-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.columns-row label {
+  background: #f7fafd;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1.1rem;
+  font-weight: 600;
+  color: #185a9d;
+  cursor: pointer;
+  box-shadow: 0 1px 4px #43cea211;
+  transition: background 0.2s;
+}
+
+.columns-row label:hover {
+  background: #43cea2;
+  color: #fff;
+}
+
+.export-options-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.export-options-row label,
+.export-options-row select,
+.export-options-row input[type="email"],
+.export-options-row input[type="text"] {
+  font-size: 1rem;
+}
+
+.export-btn, .email-btn, .schedule-btn {
+  background: #43cea2;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.export-btn:hover, .email-btn:hover, .schedule-btn:hover {
+  background: #185a9d;
+  transform: scale(1.05);
+}
+
+.preview-section {
+  margin-bottom: 2rem;
+}
+
+.preview-table, .logs-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7fafd;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #43cea211;
+  margin-bottom: 1rem;
+}
+
+.preview-table th, .preview-table td,
+.logs-table th, .logs-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+}
+
+.preview-table th, .logs-table th {
+  background: #185a9d;
+  color: #fff;
+  font-weight: 700;
+}
+
+.download-link {
+  color: #43cea2;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.download-link:hover {
+  color: #185a9d;
+}
+
+@media (max-width: 900px) {
+  .export-report-container {
+    padding: 1rem 0.5rem;
+  }
+  .report-types, .columns-row, .filters-row, .export-options-row {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .preview-table th, .preview-table td,
+  .logs-table th, .logs-table td {
+    padding: 0.5rem 0.5rem;
+  }
+}

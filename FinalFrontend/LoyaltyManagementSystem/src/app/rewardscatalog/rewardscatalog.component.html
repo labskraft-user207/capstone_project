@@ -1,0 +1,51 @@
+<div class="rewardscatalog-container">
+  <h2>Rewards Catalog</h2>
+  <div class="rewards-list">
+    <div class="reward-card" *ngFor="let reward of rewards">
+      <div class="reward-img">
+        <img [src]="reward.imageUrl" [alt]="reward.name" />
+      </div>
+      <div class="reward-info">
+        <h3>{{ reward.name }}</h3>
+        <div class="reward-value">Value: ₹{{ reward.value }}</div>
+        <div class="reward-points">Required: {{ reward.requiredPoints }} pts</div>
+        <div class="reward-desc">{{ reward.desc }}</div>
+        <button class="details-btn" (click)="openDetails(reward)">Details</button>
+        <button class="wishlist-btn" 
+                (click)="isInWishlist(reward) ? removeFromWishlist(reward) : addToWishlist(reward)">
+          {{ isInWishlist(reward) ? 'Remove from Wishlist' : 'Add to Wishlist' }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay Popup for Reward Details -->
+  <div class="overlay" *ngIf="showPopup">
+    <div class="popup">
+      <button class="close-btn" (click)="closePopup()">&times;</button>
+      <h3>{{ selectedReward?.name }}</h3>
+      <div *ngIf="selectedReward">
+        <div><strong>Value:</strong> ₹{{ selectedReward.value }}</div>
+        <div><strong>Required Points:</strong> {{ selectedReward.requiredPoints }}</div>
+        <div><strong>Description:</strong> {{ selectedReward.desc }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wishlist-section" *ngIf="wishlist.length > 0">
+    <h3>Wishlist</h3>
+    <div class="wishlist-list">
+      <div class="wishlist-card" *ngFor="let reward of wishlist">
+        <div class="wishlist-img">
+          <img [src]="reward.imageUrl" [alt]="reward.name" />
+        </div>
+        <div class="wishlist-info">
+          <h4>{{ reward.name }}</h4>
+          <div class="wishlist-value">Value: ₹{{ reward.value }}</div>
+          <div class="wishlist-points">Required: {{ reward.requiredPoints }} pts</div>
+          <button class="remove-btn" (click)="removeFromWishlist(reward)">Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

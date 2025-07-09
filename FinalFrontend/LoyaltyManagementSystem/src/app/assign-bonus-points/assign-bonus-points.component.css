@@ -1,0 +1,257 @@
+.assign-bonus-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  background: #f7fafd;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px #43cea211;
+  padding: 2rem;
+}
+
+.assign-bonus-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.assign-bonus-header h2 {
+  color: #185a9d;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.history-btn {
+  background: #185a9d;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.history-btn:hover {
+  background: #e67e22;
+}
+
+.user-search-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.user-search-input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+  width: 300px;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  background: #fff;
+  border: 1px solid #43cea2;
+  border-radius: 0.5rem;
+  width: 300px;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.user-option {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.user-option:hover {
+  background: #43cea2;
+  color: #fff;
+}
+
+.search-btn, .bulk-upload-btn {
+  background: #43cea2;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.bulk-upload-btn {
+  background: #43cea2;
+}
+
+.search-btn:hover, .bulk-upload-btn:hover {
+  background: #43cea2;
+}
+
+.bonus-form {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px #43cea211;
+}
+
+.form-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 180px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #185a9d;
+  margin-bottom: 0.3rem;
+}
+
+.bonus-form input[type="text"],
+.bonus-form input[type="number"],
+.bonus-form input[type="date"],
+.bonus-form select {
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: 0.5rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.assign-btn {
+  background: #185a9d;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.assign-btn:hover {
+  background: #185a9d;
+  transform: scale(1.05);
+}
+
+.reset-btn {
+  background: #b2bec3;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background: #636e72;
+}
+
+.bulk-assignment-section {
+  margin-top: 2rem;
+}
+
+.bonus-table, .history-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #43cea211;
+  margin-bottom: 1rem;
+}
+
+.bonus-table th, .bonus-table td,
+.history-table th, .history-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.bonus-table th, .history-table th {
+  background: #185a9d;
+  color: #fff;
+  font-weight: 700;
+}
+
+.status-badge {
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: #b2bec3;
+  color: #fff;
+}
+
+.status-badge.pending { background: #e67e22; }
+.status-badge.approved { background: #43cea2; }
+
+.bonus-history-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(24,90,157,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem 2.5rem;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 4px 32px #185a9d33;
+}
+
+.close-btn {
+  background: #185a9d;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1.2rem;
+}
+
+.close-btn:hover {
+  background: #43cea2;
+}
+
+@media (max-width: 900px) {
+  .assign-bonus-container {
+    padding: 1rem 0.5rem;
+  }
+  .form-row, .user-search-section {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .bulk-table th, .bulk-table td,
+  .history-table th, .history-table td {
+    padding: 0.5rem 0.5rem;
+  }
+}

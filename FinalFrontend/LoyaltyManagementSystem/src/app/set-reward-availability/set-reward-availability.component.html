@@ -1,0 +1,64 @@
+<div class="set-reward-availability-container">
+  <div class="availability-header">
+    <h2>Set Reward Availability</h2>
+    <button class="save-btn" (click)="onSaveChanges()">Save Changes</button>
+  </div>
+
+  <div class="availability-table-section">
+    <div class="table-scroll-wrapper">
+      <table class="availability-table">
+        <thead>
+          <tr>
+            <th>Reward</th>
+            <th>Status</th>
+            <th>Schedule</th>
+            <th>Inventory</th>
+            <th>Low Inventory Alert</th>
+            <th>Manual Override</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reward of rewards ">
+            <td class="reward-cell">
+              <img [src]="reward.imageUrl" [alt]="reward.reward" class="reward-thumb" />
+              <span class="reward-name">{{ reward.reward }}</span>
+            </td>
+            <td>
+              <select class="status-select" [(ngModel)]="reward.status">
+                <option *ngFor="let opt of statusOptions" [value]="opt">{{ opt }}</option>
+              </select>
+            </td>
+            <td>
+              <div class="schedule-row">
+                <label>From</label>
+                <input type="date" [(ngModel)]="reward.startDate" />
+                <label>To</label>
+                <input type="date" [(ngModel)]="reward.endDate" />
+              </div>
+            </td>
+            <td>
+              <span class="inventory-count" [ngClass]="{'low': reward.inventory > 0 && reward.inventory < 5, 'out': reward.inventory === 0}">
+                {{ reward.inventory }}
+              </span>
+              <span class="inventory-label" [ngClass]="{'low': reward.inventory > 0 && reward.inventory < 5, 'out': reward.inventory === 0}">
+                {{ reward.inventory === 0 ? 'Out' : reward.inventory < 5 ? 'Low' : 'OK' }}
+              </span>
+            </td>
+            <td>
+              <label class="switch">
+                <input type="checkbox" [(ngModel)]="reward.lowInventoryAlert" (change)="onToggleAlert(reward)">
+                <span class="slider"></span>
+              </label>
+              <span class="alert-label">Notify below 5</span>
+            </td>
+            <td>
+              <button class="override-btn" [class.active]="reward.manualOverride" (click)="onToggleOverride(reward)">
+                {{ reward.manualOverride ? 'Disable' : 'Enable' }}
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

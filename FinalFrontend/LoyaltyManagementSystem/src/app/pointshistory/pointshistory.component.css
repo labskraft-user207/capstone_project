@@ -1,0 +1,247 @@
+.pointshistory-container {
+  max-width: 950px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(67, 206, 162, 0.10);
+  padding: 2rem 2.5rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.pointshistory-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.pointshistory-header h2 {
+  color: #185a9d;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.pointshistory-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-input, .filter-select, .sort-select {
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus, .filter-select:focus, .sort-select:focus {
+  border-color: #185a9d;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+.history-item {
+  background: #f7fafd;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px #43cea211;
+  padding: 1.2rem 1.5rem;
+  transition: box-shadow 0.2s;
+}
+
+.history-item:hover {
+  box-shadow: 0 6px 18px #185a9d22;
+}
+
+.history-main {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  justify-content: space-between;
+}
+
+.activity-type {
+  font-weight: 600;
+  border-radius: 0.7rem;
+  padding: 0.3rem 1rem;
+  color: #fff;
+  min-width: 90px;
+  text-align: center;
+}
+
+.activity-type.Purchase { background: #43cea2; }
+.activity-type.Review { background: #f953c6; }
+.activity-type.Referral { background: #f7971e; }
+
+.activity-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.activity-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #185a9d;
+}
+
+.activity-date {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.activity-points {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.activity-points.positive { color: #43cea2; }
+.activity-points.negative { color: #e74c3c; }
+
+.details-btn {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.details-btn:hover {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  transform: scale(1.05);
+}
+
+.history-details {
+  margin-top: 1rem;
+  background: #fff;
+  border-radius: 0.7rem;
+  padding: 1rem 1.2rem;
+  box-shadow: 0 1px 4px #43cea211;
+  font-size: 1rem;
+  color: #444;
+  display: none; /* Toggle this with JS for expand/collapse */
+}
+
+.history-item.open .history-details {
+  display: block;
+}
+
+.pagination-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.pagination-btn {
+  background: #185a9d;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pagination-btn:disabled {
+  background: #b2bec3;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  color: #185a9d;
+  font-weight: 600;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(24, 90, 157, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  padding: 2rem 2.5rem;
+  min-width: 320px;
+  max-width: 90vw;
+  position: relative;
+  animation: pop-in 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #185a9d;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #43cea2;
+}
+
+.popup h3 {
+  margin-top: 0;
+  color: #185a9d;
+  margin-bottom: 1.2rem;
+}
+
+.popup div {
+  margin-bottom: 0.7rem;
+  font-size: 1.05rem;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .pointshistory-container {
+    padding: 1rem 0.5rem;
+  }
+  .pointshistory-controls {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}
+
+.no-results {
+  text-align: center;
+  color: #888;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+}

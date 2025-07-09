@@ -1,0 +1,56 @@
+<header class="dashboard-header">
+  <div class="logo">Loyalty Manager</div>
+  <nav class="dashboard-nav">
+    <a href="#" class="nav-link active">Dashboard</a>
+    <a href="#" class="nav-link">Rewards</a>
+    <a href="#" class="nav-link">Catalog</a>
+    <a href="#" class="nav-link">Activity</a>
+  </nav>
+  <button class="logout-btn" [routerLink]="['/login']">Logout</button>
+</header>
+
+<main class="dashboard-main">
+  <section class="widgets-grid">
+    <div class="widget earned-points" [routerLink]="['/earnedpoints']" style="cursor:pointer;">
+      <h3>Earned Points</h3>
+      <div class="widget-value">{{this.totalPoints}}</div>
+      <p>Total points earned</p>
+    </div>
+    <div class="widget points-history" [routerLink]="['/pointshistory']" style="cursor:pointer;">
+      <h3>Points History</h3>
+      <ul>
+        <li>+{{this.purchasePoints}} (Purchase)</li>
+        <li>+{{this.referralPoints}} (Referral)</li>
+        <li>+{{this.reviewPoints}} (Review)</li>
+        <li>-{{this.redeemptionPoints}} (Redeemed)</li>
+      </ul>
+    </div>
+    <div class="widget redeem-points" [routerLink]="['/redeempoints']" style="cursor:pointer;">
+      <h3>Redeem Points</h3>
+      <button class="action-btn">Redeem Now</button>
+      <p>Exchange points for rewards</p>
+    </div>
+    <div class="widget rewards-catalog" [routerLink]="['/rewardscatalog']" style="cursor:pointer;">
+      <h3>Rewards Catalog</h3>
+      <button class="action-btn">View Catalog</button>
+      <p>See available rewards</p>
+    </div>
+    <div class="widget activity-tracker" [routerLink]="['/activity-tracker']" style="cursor:pointer;">
+      <h3>Activity Tracker</h3>
+      <p>Track your loyalty activities</p>
+      <button class="action-btn">View Activity</button>
+    </div>
+    <div class="widget email-alerts" [routerLink]="['/email-tracker']" style="cursor:pointer;">
+      <h3>Get Email Alerts</h3>
+      <button class="action-btn">Subscribe</button>
+      <p>Get notified about expiring points or new rewards</p>
+    </div>
+  </section>
+  <div class="snackbar" *ngIf="showSnackbar">
+    Push notifications for goal reminders are enabled!
+  </div>
+</main>
+
+<footer class="dashboard-footer">
+  &copy; 2024 Loyalty Management System &mdash; Manager Dashboard
+</footer>

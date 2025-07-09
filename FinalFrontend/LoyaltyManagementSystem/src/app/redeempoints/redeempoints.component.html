@@ -1,0 +1,68 @@
+<div class="redeempoints-container">
+  <div class="redeempoints-header">
+    <h2>Redeem Points</h2>
+    <div class="points-balance">Available Points: <span>{{ this.totalPoints }}</span></div>
+  </div>
+
+  <div class="redeempoints-filters">
+    <label for="pointsRange">Filter by Points:</label>
+    <input type="range" id="pointsRange" min="0" max="2500" step="50" [(ngModel)]="pointsFilter" />
+    <span class="range-value">0 - {{ this.totalPoints }}</span>
+    <input type="text" class="search-reward" placeholder="Search rewards..." [(ngModel)]="searchTerm" />
+  </div>
+
+  <div class="rewards-list">
+    <div class="reward-card" *ngFor="let reward of filteredRewards()">
+      <div class="reward-img">
+        <img [src]="reward.imageUrl" [alt]="reward.name" />
+      </div>
+      <div class="reward-info">
+        <h3>{{ reward.name }}</h3>
+        <div class="reward-value">Value: ₹{{ reward.value }}</div>
+        <div class="reward-points">Required: {{ reward.requiredPoints }} pts</div>
+        <div class="reward-desc">{{ reward.desc }}</div>
+        <button class="details-btn" (click)="openDetails(reward)">View Details</button>
+        <button class="add-cart-btn" (click)="addToCart(reward)" [disabled]="isInCart(reward)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay Popup for Reward Details -->
+  <div class="overlay" *ngIf="showPopup">
+    <div class="popup">
+      <button class="close-btn" (click)="closePopup()">&times;</button>
+      <h3>{{ selectedReward?.name }}</h3>
+      <div *ngIf="selectedReward">
+        <div><strong>Value:</strong> ₹{{ selectedReward.value }}</div>
+        <div><strong>Required Points:</strong> {{ selectedReward.requiredPoints }}</div>
+        <div><strong>Description:</strong> {{ selectedReward.desc }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="redemption-cart">
+    <h3>Redemption Cart</h3>
+    <div class="cart-items">
+      <div class="cart-item" *ngFor="let item of cart">
+        <span>{{ item.name }}</span>
+        <span>{{ item.requiredPoints }} pts</span>
+        <button class="remove-btn" (click)="removeFromCart(item)">Remove</button>
+      </div>
+      <div *ngIf="cart.length === 0" class="no-results">Cart is empty.</div>
+    </div>
+    <button class="checkout-btn" [disabled]="cart.length === 0" (click)="checkout()">Checkout</button>
+  </div>
+
+  <div class="redemption-history-section">
+    <h3>Redemption History</h3>
+    <div class="history-list">
+      <div class="history-item" *ngFor="let history of redemptionHistory">
+        <span class="history-reward">{{ history.name }}</span>
+        <span class="history-date">{{ history.date }}</span>
+        <span class="history-status" [ngClass]="history.status">{{ history.status | titlecase }}</span>
+        <button class="view-delivery-btn" [disabled]="history.status !== 'delivered'">View {{ history.status === 'delivered' ? 'Voucher' : 'Status' }}</button>
+      </div>
+      <div *ngIf="redemptionHistory.length === 0" class="no-results">No redemption history found.</div>
+    </div>
+  </div>
+</div>

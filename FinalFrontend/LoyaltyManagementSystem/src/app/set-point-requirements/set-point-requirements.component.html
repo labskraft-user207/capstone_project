@@ -1,0 +1,91 @@
+<div class="set-point-req-container">
+  <div class="set-point-req-header">
+    <h2>Set Point Requirements</h2>
+    <button class="save-btn" (click)="onSaveChanges()">Save Changes</button>
+  </div>
+
+  <div class="minmax-section">
+    <h3>Global Redemption Limits</h3>
+    <div class="minmax-row">
+      <div class="form-group">
+        <label for="minPoints">Minimum Points</label>
+        <input type="number" id="minPoints" min="0" [(ngModel)]="minPoints" placeholder="e.g. 500" />
+      </div>
+      <div class="form-group">
+        <label for="maxPoints">Maximum Points</label>
+        <input type="number" id="maxPoints" min="0" [(ngModel)]="maxPoints" placeholder="e.g. 5000" />
+      </div>
+    </div>
+  </div>
+
+  <div class="tier-section">
+    <h3>Tier-Based Requirements</h3>
+    <table class="tier-table">
+      <thead>
+        <tr>
+          <th>User Tier</th>
+          <th>Points Required</th>
+          <th>Dynamic Rule</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let req of tierRequirements">
+          <td><span class="tier-badge" [ngClass]="req.tier.toLowerCase()">{{ req.tier }}</span></td>
+          <td>
+            <input type="number" min="0" [(ngModel)]="req.pointsRequired" />
+          </td>
+          <td>
+            <select [(ngModel)]="req.dynamicRule">
+              <option *ngFor="let opt of dynamicRuleOptions">{{ opt }}</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="time-rule-section">
+    <h3>Time-Based Rules</h3>
+    <div class="time-rule-table-wrapper">
+      <table class="time-rule-table">
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Date Start</th>
+            <th>Date End</th>
+            <th>Points Adjustment (%)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rule of timeRules; let i = index">
+            <td>{{ rule.eventName }}</td>
+            <td>{{ rule.dateStart }}</td>
+            <td>{{ rule.dateEnd }}</td>
+            <td>{{ rule.discount }}</td>
+            <td>
+              <button class="remove-rule-btn" (click)="onRemoveTimeRule(i)">Remove</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" [(ngModel)]="newTimeRule.eventName" placeholder="e.g. Festive Sale" />
+            </td>
+            <td>
+              <input type="date" [(ngModel)]="newTimeRule.dateStart" />
+            </td>
+            <td>
+              <input type="date" [(ngModel)]="newTimeRule.dateEnd" />
+            </td>
+            <td>
+              <input type="number" [(ngModel)]="newTimeRule.discount" placeholder="-20" />
+            </td>
+            <td>
+              <button class="add-rule-btn" (click)="onAddTimeRule()">Add Rule</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
