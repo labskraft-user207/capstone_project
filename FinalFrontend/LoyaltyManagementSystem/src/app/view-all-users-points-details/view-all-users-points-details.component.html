@@ -1,0 +1,53 @@
+<div class="users-points-container">
+  <div class="users-header">
+    <h2>All Users & Points</h2>
+    <button class="export-btn" (click)="exportCSV()">Export CSV</button>
+  </div>
+
+  <div class="users-filter-row">
+    <input type="text" class="filter-input" placeholder="Search by name, email, or user ID..." [(ngModel)]="searchTerm" (input)="applyFilters()" />
+    <select class="filter-select" [(ngModel)]="sortOption" (change)="applyFilters()">
+      <option value="Points">Sort by: Points</option>
+      <option value="Tier">Tier</option>
+      <option value="Signup Date">Signup Date</option>
+    </select>
+    <button class="filter-btn" (click)="applyFilters()">Filter</button>
+  </div>
+
+  <div class="users-table-section">
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Email</th>
+          <th>Tier</th>
+          <th>Active Points</th>
+          <th>Earned</th>
+          <th>Referral</th>
+          <th>Review</th>
+          <th>Purchase</th>
+          <th>Redeemed</th>
+          <th>Signup Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUserSummaries">
+          <td>{{ user.username }}</td>
+          <td>{{ user.emailId }}</td>
+          <td><span class="tier-badge" [ngClass]="user.tier.toLowerCase()">{{ user.tier }}</span></td>
+          <td>{{ user.activePoints }}</td>
+          <td>{{ user.earnedPoints }}</td>
+          <td>{{ user.referralPoints }}</td>
+          <td>{{ user.reviewPoints }}</td>
+          <td>{{ user.purchasePoints }}</td>
+          <td>{{ user.redemptionPoints }}</td>
+          <td>{{ user.signupDate | date:'yyyy-MM-dd' }}</td>
+          <td>
+            <span class="status-badge" [ngClass]="{'normal': user.status === 'Normal', 'suspicious': user.status === 'Suspecious'}">{{ user.status }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

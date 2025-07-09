@@ -1,0 +1,90 @@
+<div class="earnedpoints-container">
+  <div class="earnedpoints-header">
+    <h2>View Earned Points</h2>
+    <button class="export-btn" (click)="downloadReport()">Download Report</button>
+  </div>
+
+  <div class="points-summary-cards">
+    <div class="summary-card total-points">
+      <div class="summary-label">Total Points</div>
+      <div class="summary-value">{{this.totalPoints}}</div>
+    </div>
+    <div class="summary-card today">
+      <div class="summary-label">Today</div>
+      <div class="summary-value">+{{this.todayPoints}}</div>
+    </div>
+    <div class="summary-card week">
+      <div class="summary-label">This Week</div>
+      <div class="summary-value">+{{weeklyPoints}}</div>
+    </div>
+    <div class="summary-card month">
+      <div class="summary-label">This Month</div>
+      <div class="summary-value">+{{this.monthlyPoints}}</div>
+    </div>
+    <div class="summary-card tier-status">
+      <div class="summary-label">Tier Status</div>
+      <div class="tier-badge" [ngClass]="userTier">{{userTier}}</div>
+    </div>
+  </div>
+
+  <div class="filters-row">
+    <div>
+      <label for="activityType">Activity Type:</label>
+      <select id="activityType"  [(ngModel)]="selectedActivityType">
+        <option value="all">All</option>
+        <option value="Purchase">Purchase</option>
+        <option value="Referral">Referral</option>
+        <option value="Review">Review</option>
+      </select>
+    </div>
+    <div>
+      <label for="dateRange">Date Range:</label>
+      <input type="date" id="dateStart" />
+      <span>to</span>
+      <input type="date" id="dateEnd" />
+    </div>
+    <button class="apply-filter-btn" (click)="filterActivities(selectedActivityType, dateStart, dateEnd)">Apply Filter</button>
+    <div class="activity-list-section">
+    <h3>Filtered Results</h3>
+    <div class="activity-list">
+      <div class="activity-item" *ngFor="let activity of filteredActivities">
+        <span class="activity-type" [ngClass]="activity.pointType">{{ activity.pointType }}</span>
+        <span class="activity-date">{{ activity.pointGainedOn | date: 'yyyy-MM-dd' }}</span>
+        <span class="activity-amount">+{{ activity.pointGained }} pts</span>
+      </div>
+      <div *ngIf="filteredActivities.length === 0" class="no-results">
+        No activities found for selected filters.
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="breakdown-section">
+    <h3>Breakdown by Activity Type</h3>
+    <div class="breakdown-cards">
+      <div class="breakdown-card purchase">
+        <span class="breakdown-label">Purchase</span>
+        <span class="breakdown-value">+{{this.purchasePoints}}</span>
+      </div>
+      <div class="breakdown-card referral">
+        <span class="breakdown-label">Referral</span>
+        <span class="breakdown-value">+{{this.referralPoints}}</span>
+      </div>
+      <div class="breakdown-card review">
+        <span class="breakdown-label">Review</span>
+        <span class="breakdown-value">+{{this.reviewPoints}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity-list-section">
+    <h3>Recent Activities</h3>
+    <div class="activity-list">
+      <div class="activity-item" *ngFor="let activity of this.mostRecentActivities">
+        <span class="activity-type" [ngClass]="activity.pointType">{{ activity.pointType }}</span>
+        <span class="activity-date">{{ activity.pointGainedOn | date: 'yyyy-MM-dd' }}</span>
+        <span class="activity-amount">+{{ activity.pointGained }} pts</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,378 @@
+.manage-rewards-container {
+  max-width: 1150px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(67, 206, 162, 0.10);
+  padding: 2rem 2.5rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.manage-rewards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.manage-rewards-header h2 {
+  color: #185a9d;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.add-reward-btn {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px #43cea244;
+}
+
+.add-reward-btn:hover {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  transform: scale(1.05);
+}
+
+.rewards-filter-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-input, .filter-select {
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.filter-btn {
+  background: #185a9d;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filter-btn:hover {
+  background: #43cea2;
+}
+
+.reward-form {
+  background: #f7fafd;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 2px 8px #43cea211;
+}
+
+.form-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.form-group.full-width {
+  flex: 1 1 100%;
+}
+
+.reward-form label {
+  font-weight: 600;
+  color: #185a9d;
+  margin-bottom: 0.3rem;
+}
+
+.reward-form input[type="text"],
+.reward-form input[type="number"],
+.reward-form input[type="date"],
+.reward-form select,
+.reward-form textarea {
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: 0.5rem;
+}
+
+.reward-form input[type="file"] {
+  margin-top: 0.3rem;
+}
+
+.reward-form textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.save-btn {
+  background: #43cea2;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.save-btn:hover {
+  background: #185a9d;
+  transform: scale(1.05);
+}
+
+.reset-btn {
+  background: #b2bec3;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.reset-btn:hover {
+  background: #636e72;
+}
+
+.preview-btn {
+  background: #f7971e;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.preview-btn:hover {
+  background: #e67e22;
+}
+
+.clone-btn {
+  background: #43cea2;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.clone-btn:hover {
+  background: #185a9d;
+}
+
+.bulk-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.bulk-btn {
+  background: #185a9d;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.bulk-btn.delete {
+  background: #e74c3c;
+}
+
+.bulk-btn:hover {
+  background: #43cea2;
+}
+
+.bulk-btn.delete:hover {
+  background: #c0392b;
+}
+
+.rewards-list-section {
+  margin-top: 2rem;
+}
+
+.rewards-list-section h3 {
+  color: #185a9d;
+  margin-bottom: 1rem;
+}
+
+.rewards-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7fafd;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #43cea211;
+}
+
+.rewards-table th, .rewards-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+}
+
+.rewards-table th {
+  background: #185a9d;
+  color: #fff;
+  font-weight: 700;
+}
+
+.rewards-table tr:nth-child(even) {
+  background: #e0eafc;
+}
+
+.reward-thumb {
+  width: 36px;
+  height: 36px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  background: #fff;
+  box-shadow: 0 1px 4px #43cea211;
+}
+
+.status-badge {
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.7rem;
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.status-badge.active {
+  background: #43cea2;
+}
+
+.status-badge.inactive {
+  background: #b2bec3;
+}
+
+.edit-btn, .delete-btn, .history-btn, .clone-btn {
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 0.3rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.edit-btn {
+  background: #43cea2;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: #185a9d;
+  transform: scale(1.05);
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+.history-btn {
+  background: #f7971e;
+  color: #fff;
+}
+
+.history-btn:hover {
+  background: #e67e22;
+}
+
+.clone-btn {
+  background: #b2bec3;
+  color: #fff;
+}
+
+.clone-btn:hover {
+  background: #636e72;
+}
+
+.history-modal, .preview-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(24, 90, 157, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 32px 0 rgba(24, 90, 157, 0.18);
+  min-width: 320px;
+  max-width: 400px;
+}
+
+.preview-details div {
+  margin-bottom: 0.5rem;
+}
+
+.close-btn {
+  background: #185a9d;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #43cea2;
+}
+
+@media (max-width: 900px) {
+  .manage-rewards-container {
+    padding: 1rem 0.5rem;
+  }
+  .form-row, .rewards-filter-row, .bulk-actions-row {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .rewards-table th, .rewards-table td {
+    padding: 0.5rem 0.5rem;
+  }
+}

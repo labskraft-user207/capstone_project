@@ -1,0 +1,93 @@
+<div class="email-tracker-container">
+  <div class="email-tracker-header">
+    <h2>Email Alerts & Preferences</h2>
+    <div class="tracker-date-range">
+      <button class="date-btn active">Daily</button>
+      <button class="date-btn">Weekly</button>
+    </div>
+  </div>
+
+  <div class="preferences-section">
+    <h3>Manage Email Preferences</h3>
+    <div class="toggle-row">
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+      <span>Expiring Points Alerts</span>
+    </div>
+    <div class="toggle-row">
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+      <span>New Rewards Added</span>
+    </div>
+    <div class="toggle-row">
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+      </label>
+      <span>Exclusive Offers</span>
+    </div>
+    <div class="frequency-row">
+      <label for="frequency">Notification Frequency:</label>
+      <select id="frequency">
+        <option>Instant</option>
+        <option>Daily</option>
+        <option>Weekly</option>
+      </select>
+    </div>
+    <div class="threshold-row">
+      <label for="threshold">Threshold Alert:</label>
+      <input type="number" id="threshold" min="100" step="100" value="500" />
+      <span>Notify me when I reach this many points</span>
+    </div>
+  </div>
+
+  <div class="preview-section">
+    <h3>Upcoming Alert Preview</h3>
+    <div class="alert-preview">
+      <div class="alert-title">Expiring Points Alert</div>
+      <div class="alert-body">
+        <strong>Heads up!</strong> You have <span class="highlight">200 points</span> expiring in 7 days.
+      </div>
+    </div>
+    <div class="alert-preview">
+      <div class="alert-title">New Reward Alert</div>
+      <div class="alert-body">
+        <strong>New!</strong> Starbucks Gift Card is now available for redemption.
+      </div>
+    </div>
+  </div>
+
+  <div class="email-log-section">
+    <h3>Sent Email Log</h3>
+    <div class="email-log-table">
+      <div class="email-log-header">
+        <span>Date</span>
+        <span>Type</span>
+        <span>Subject</span>
+        <span>Status</span>
+      </div>
+      <div class="email-log-row">
+        <span>2024-07-02</span>
+        <span>Expiring Points</span>
+        <span>Your Points Are Expiring Soon</span>
+        <span class="sent">Sent</span>
+      </div>
+      <div class="email-log-row">
+        <span>2024-07-01</span>
+        <span>New Reward</span>
+        <span>Amazon Gift Card Added</span>
+        <span class="sent">Sent</span>
+      </div>
+      <div class="email-log-row">
+        <span>2024-06-30</span>
+        <span>Exclusive Offer</span>
+        <span>Special 2x Points Weekend</span>
+        <span class="failed">Failed</span>
+      </div>
+    </div>
+  </div>
+</div>

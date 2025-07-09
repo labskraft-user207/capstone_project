@@ -1,0 +1,134 @@
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #8e2de2 0%, #4a00e0 100%);
+  color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 12px rgba(142, 45, 226, 0.08);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.dashboard-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  background: rgba(255,255,255,0.18);
+  color: #ffe082;
+}
+
+.logout-btn {
+  background: #fff;
+  color: #4a00e0;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  margin-left: 1.5rem;
+}
+
+.logout-btn:hover {
+  background: #ffe082;
+  color: #4a00e0;
+}
+
+.dashboard-main {
+  padding: 2rem;
+  background: #f7fafd;
+  min-height: 90vh;
+}
+
+.widgets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.widget {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px 0 rgba(142, 45, 226, 0.08);
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.widget:hover {
+  box-shadow: 0 8px 32px 0 rgba(142, 45, 226, 0.13);
+  transform: translateY(-4px) scale(1.02);
+}
+
+.widget h3 {
+  margin: 0 0 0.7rem 0;
+  color: #4a00e0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.action-btn {
+  background: linear-gradient(90deg, #8e2de2 0%, #4a00e0 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.action-btn:hover {
+  background: linear-gradient(90deg, #4a00e0 0%, #8e2de2 100%);
+  transform: scale(1.05);
+}
+
+.dashboard-footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #4a00e0;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-top: 2rem;
+  border-radius: 0 0 1rem 1rem;
+}
+
+@media (max-width: 700px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .dashboard-main {
+    padding: 1rem;
+  }
+  .widgets-grid {
+    gap: 1rem;
+  }
+  .dashboard-footer {
+    font-size: 0.9rem;
+  }
+}

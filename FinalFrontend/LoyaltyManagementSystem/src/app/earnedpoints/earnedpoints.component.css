@@ -1,0 +1,267 @@
+.earnedpoints-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(67, 206, 162, 0.10);
+  padding: 2rem 2.5rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.earnedpoints-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.earnedpoints-header h2 {
+  font-size: 2rem;
+  color: #185a9d;
+  font-weight: 700;
+}
+
+.export-btn {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px #43cea244;
+}
+
+.export-btn:hover {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  transform: scale(1.05);
+}
+
+.points-summary-cards {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.summary-card {
+  background: #f7fafd;
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  min-width: 120px;
+  flex: 1 1 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px #43cea211;
+}
+
+.summary-card.total-points { border-left: 6px solid #43cea2; }
+.summary-card.today { border-left: 6px solid #f7971e; }
+.summary-card.week { border-left: 6px solid #f953c6; }
+.summary-card.month { border-left: 6px solid #185a9d; }
+.summary-card.tier-status { border-left: 6px solid #ffd700; }
+
+.summary-label {
+  font-size: 1rem;
+  color: #888;
+  margin-bottom: 0.3rem;
+}
+
+.summary-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #185a9d;
+}
+
+.tier-badge {
+  padding: 0.3rem 1.2rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(90deg, #ffd700 0%, #ffb347 100%);
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  box-shadow: 0 2px 8px #ffd70033;
+}
+
+.tier-badge.Gold { background: #ffd700; color: #444; }
+.tier-badge.Silver { background: #b0c4de; color: #444; }
+.tier-badge.Bronze { background: #cd7f32; color: #fff; }
+
+.filters-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filters-row label {
+  font-weight: 500;
+  color: #185a9d;
+  margin-right: 0.5rem;
+}
+
+.filters-row select,
+.filters-row input[type="date"] {
+  border: 1px solid #43cea2;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.breakdown-section {
+  margin-bottom: 2rem;
+}
+
+.breakdown-section h3 {
+  color: #185a9d;
+  margin-bottom: 1rem;
+}
+
+.breakdown-cards {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.breakdown-card {
+  background: #f7fafd;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  min-width: 120px;
+  flex: 1 1 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #43cea211;
+}
+
+.breakdown-card.purchase { border-top: 5px solid #43cea2; }
+.breakdown-card.referral { border-top: 5px solid #f7971e; }
+.breakdown-card.review { border-top: 5px solid #f953c6; }
+
+.breakdown-label {
+  color: #888;
+  margin-bottom: 0.3rem;
+}
+
+.breakdown-value {
+  font-size: 1.2rem;
+  color: #185a9d;
+}
+
+.activity-list-section {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.activity-list-section h3 {
+  color: #185a9d;
+  margin-bottom: 1rem;
+}
+
+.activity-list {
+  background: #f7fafd;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 8px #43cea211;
+  max-height: 420px; /* Show up to 10 records (approx 42px each) */
+  overflow-y: auto;
+  transition: max-height 0.3s;
+}
+
+.activity-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-type {
+  font-weight: 600;
+  border-radius: 0.7rem;
+  padding: 0.2rem 0.8rem;
+  color: #fff;
+  margin-right: 0.7rem;
+}
+
+.activity-type.Purchase { background: #43cea2; }
+.activity-type.Referral { background: #f7971e; }
+.activity-type.Review { background: #f953c6; }
+
+.activity-date {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.activity-amount {
+  font-weight: 700;
+  color: #185a9d;
+}
+
+.no-results {
+  text-align: center;
+  color: #888;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.apply-filter-btn {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.4rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #43cea244;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.apply-filter-btn:hover {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 16px 0 rgba(67, 206, 162, 0.15);
+}
+
+@media (max-width: 900px) {
+  .earnedpoints-container {
+    padding: 1rem 0.5rem;
+  }
+  .points-summary-cards, .breakdown-cards {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .filters-row {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .activity-list {
+    padding: 0.5rem 0.3rem;
+  }
+  .activity-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    font-size: 0.98rem;
+  }
+  .activity-type {
+    margin-bottom: 0.2rem;
+  }
+}

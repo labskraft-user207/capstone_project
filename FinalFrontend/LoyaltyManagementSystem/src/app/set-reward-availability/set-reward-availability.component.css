@@ -1,0 +1,211 @@
+.set-reward-availability-container {
+  /* max-width: 950px;
+  margin: 2rem auto; */
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(67, 206, 162, 0.10);
+  /* padding: 2rem 2.5rem; */
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.availability-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.availability-header h2 {
+  color: #185a9d;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.save-btn {
+  background: #43cea2;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.save-btn:hover {
+  background: #185a9d;
+  transform: scale(1.05);
+}
+
+.availability-table-section {
+  margin-top: 1rem;
+}
+
+.table-scroll-wrapper {
+  max-height: 370px; /* Approx height for 5 rows */
+  overflow-y: auto;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px #43cea211;
+}
+
+.availability-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7fafd;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #43cea211;
+}
+
+.availability-table th, .availability-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.availability-table th {
+  background: #185a9d;
+  color: #fff;
+  font-weight: 700;
+}
+
+.reward-cell {
+  min-width: 220px;
+  max-width: 320px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.reward-thumb {
+  width: 48px;
+  height: 48px;
+  margin-right: 0.7rem;
+  vertical-align: middle;
+}
+
+.reward-name {
+  font-weight: 600;
+  color: #185a9d;
+  font-size: 1.1rem;
+}
+
+.status-select {
+  border: 1px solid #43cea2;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  font-size: 1rem;
+}
+
+.schedule-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inventory-count {
+  font-weight: 700;
+  color: #185a9d;
+  font-size: 1.1rem;
+}
+
+.inventory-count.low {
+  color: #e67e22;
+}
+
+.inventory-label {
+  font-size: 0.95rem;
+  color: #888;
+  margin-left: 0.3rem;
+}
+
+.inventory-label.low {
+  color: #e67e22;
+}
+
+.inventory-label.out {
+  color: #e74c3c;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  margin-right: 0.3rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 22px;
+  transition: .4s;
+}
+
+.switch input:checked + .slider {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: .4s;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.alert-label {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.override-btn {
+  background: #b2bec3;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.override-btn.active {
+  background: #e74c3c;
+}
+
+.override-btn:hover {
+  background: #185a9d;
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  /* .set-reward-availability-container {
+    padding: 1rem 0.5rem;
+  } */
+  .availability-table th, .availability-table td {
+    padding: 0.5rem 0.5rem;
+  }
+  .schedule-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+}

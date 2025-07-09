@@ -1,0 +1,240 @@
+.users-points-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(67, 206, 162, 0.10);
+  padding: 2rem 2.5rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.users-header h2 {
+  color: #185a9d;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.export-btn {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.export-btn:hover {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  transform: scale(1.05);
+}
+
+.users-filter-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-input, .filter-select {
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.filter-btn {
+  background: #185a9d;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filter-btn:hover {
+  background: #43cea2;
+}
+
+.users-table-section {
+  margin-top: 1rem;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7fafd;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #43cea211;
+}
+
+.users-table th, .users-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.users-table th {
+  background: #185a9d;
+  color: #fff;
+  font-weight: 700;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  box-shadow: 0 1px 4px #43cea211;
+}
+
+.tier-badge {
+  padding: 0.3rem 1.2rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.tier-badge.gold { background: #ffd700; color: #444; }
+.tier-badge.silver { background: #b0c4de; color: #444; }
+.tier-badge.bronze { background: #cd7f32; color: #fff; }
+
+.points-breakdown .active { color: #43cea2; font-weight: 700; }
+.points-breakdown .pending { color: #f7971e; font-weight: 700; }
+.points-breakdown .expired { color: #e74c3c; font-weight: 700; }
+
+.status-badge {
+  padding: 0.2rem 0.8rem;
+  border-radius: 0.7rem;
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.status-badge.normal { background: #43cea2; }
+.status-badge.suspicious { background: #e74c3c; }
+
+.profile-btn {
+  background: #43cea2;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 0.3rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.profile-btn:hover {
+  background: #185a9d;
+  transform: scale(1.05);
+}
+
+.flag-btn {
+  background: #f7971e;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.flag-btn.flagged {
+  background: #e74c3c;
+}
+
+.flag-btn:hover {
+  background: #185a9d;
+}
+
+.user-profile-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(24, 90, 157, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 32px 0 rgba(24, 90, 157, 0.18);
+  min-width: 320px;
+  max-width: 400px;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.profile-points, .profile-activity {
+  margin-bottom: 1rem;
+}
+
+.profile-points div, .profile-activity div {
+  margin-bottom: 0.3rem;
+}
+
+.profile-history h4 {
+  color: #185a9d;
+  margin-bottom: 0.5rem;
+}
+
+.close-btn {
+  background: #185a9d;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #43cea2;
+}
+
+@media (max-width: 900px) {
+  .users-points-container {
+    padding: 1rem 0.5rem;
+  }
+  .users-filter-row {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .users-table th, .users-table td {
+    padding: 0.5rem 0.5rem;
+  }
+}

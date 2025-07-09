@@ -1,0 +1,97 @@
+<div class="accumulation-rules-container">
+  <div class="rules-header">
+    <h2>Set Point Accumulation Rules</h2>
+    <button class="save-btn" (click)="saveChanges()">Save Changes</button>
+  </div>
+
+  <div class="rules-section">
+    <h3>Earning Rules by Activity</h3>
+    <table class="rules-table">
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Points Logic</th>
+          <th>Limits</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rule of activityRules">
+          <td>{{ rule.activity }}</td>
+          <td *ngIf="rule.activity === 'Purchase'">
+            <input type="number" min="0" class="points-input" [(ngModel)]="rule.points" /> point per
+            <input type="number" min="1" class="currency-input" [(ngModel)]="rule.perAmount" /> ₹
+          </td>
+          <td *ngIf="rule.activity !== 'Purchase'">
+            <input type="number" min="0" class="points-input" [(ngModel)]="rule.points" /> points per {{ rule.activity.toLowerCase() }}
+          </td>
+          <td>
+            <input type="number" min="0" class="limit-input" [(ngModel)]="rule.limit" />
+            {{ rule.limitType }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="promotions-section">
+    <h3>Promotions</h3>
+    <div class="promo-row">
+      <input type="text" class="promo-name" placeholder="Promotion Name" [(ngModel)]="newPromotion.name" />
+      <input type="date" class="promo-date" [(ngModel)]="newPromotion.dateStart" />
+      <input type="date" class="promo-date" [(ngModel)]="newPromotion.dateEnd" />
+      <input type="number" class="promo-multiplier" placeholder="Multiplier" min="1" [(ngModel)]="newPromotion.multiplier" />
+      <button class="add-promo-btn" (click)="addPromotion()">Add Promotion</button>
+    </div>
+    <div class="active-promos-list">
+      <div class="active-promo" *ngFor="let promo of promotions; let i = index">
+        <span class="promo-title">{{ promo.name }}</span>
+        <span class="promo-dates">{{ promo.dateStart }} to {{ promo.dateEnd }}</span>
+        <span class="promo-multiplier">x{{ promo.multiplier }}</span>
+        <button class="remove-promo-btn" (click)="removePromotion(i)">Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tier-section">
+    <h3>Tier-Based Point Earning</h3>
+    <table class="tier-table">
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th>Multiplier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tier of tierMultipliers">
+          <td><span class="tier-badge" [ngClass]="tier.tier.toLowerCase()">{{ tier.tier }}</span></td>
+          <td><input type="number" min="1" step="0.01" [(ngModel)]="tier.multiplier" />x</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="versioning-section" *ngIf="ruleVersions.length">
+    <h3>Rule Versioning</h3>
+    <div class="version-list">
+      <div class="version-item" *ngFor="let v of ruleVersions">
+        <span>{{ v.version }}{{ v.active ? ' (Active)' : '' }}</span>
+        <span>{{ v.date }}</span>
+        <button class="revert-btn" (click)="revertVersion(v)" [disabled]="v.active">Revert</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="preview-section">
+    <h3>Preview/Test Rule Impact</h3>
+    <div class="preview-row">
+      <input type="number" class="preview-amount" placeholder="Purchase Amount (₹)" [(ngModel)]="previewAmount" />
+      <select class="preview-tier" [(ngModel)]="previewTier">
+        <option *ngFor="let t of tierMultipliers" [value]="t.tier">{{ t.tier }}</option>
+      </select>
+      <button class="preview-btn" (click)="simulatePreview()">Simulate</button>
+    </div>
+    <div class="preview-result" *ngIf="previewResult">
+      {{ previewResult }}
+    </div>
+  </div>
+</div>

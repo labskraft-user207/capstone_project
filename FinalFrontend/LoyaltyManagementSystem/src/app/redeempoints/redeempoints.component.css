@@ -1,0 +1,303 @@
+.redeempoints-container {
+  max-width: 950px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(67, 206, 162, 0.10);
+  padding: 2rem 2.5rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.redeempoints-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.points-balance {
+  font-size: 1.2rem;
+  color: #185a9d;
+  font-weight: 600;
+}
+
+.redeempoints-filters {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.search-reward {
+  padding: 0.5rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid #43cea2;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.rewards-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.reward-card {
+  background: #f7fafd;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px #43cea211;
+  padding: 1.2rem 1.5rem;
+  min-width: 220px;
+  max-width: 240px;
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.reward-card:hover {
+  box-shadow: 0 6px 18px #185a9d22;
+}
+
+.reward-img img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 0.7rem;
+}
+
+.reward-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #185a9d;
+  margin-bottom: 0.3rem;
+}
+
+.reward-value, .reward-points {
+  font-size: 1rem;
+  color: #43cea2;
+  margin-bottom: 0.2rem;
+}
+
+.reward-desc {
+  color: #888;
+  font-size: 0.95rem;
+  margin-bottom: 0.7rem;
+}
+
+.details-btn, .add-cart-btn {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.4rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  margin-bottom: 0.3rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.details-btn:hover, .add-cart-btn:hover {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  transform: scale(1.05);
+}
+
+.add-cart-btn[disabled] {
+  background: #b2bec3;
+  cursor: not-allowed;
+}
+
+.redemption-cart {
+  margin-top: 2rem;
+  background: #f7fafd;
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.2rem;
+  box-shadow: 0 1px 4px #43cea211;
+  font-size: 1rem;
+}
+
+.remove-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.3rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.remove-btn:hover {
+  background: #c0392b;
+}
+
+.checkout-btn {
+  background: #185a9d;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.checkout-btn:disabled {
+  background: #b2bec3;
+  cursor: not-allowed;
+}
+
+.redemption-history-section {
+  margin-top: 2rem;
+}
+
+.redemption-history-section .history-list {
+  max-height: 320px; /* Adjust height for 5 records (approx 64px each) */
+  overflow-y: auto;
+  min-width: 320px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: #f7fafd;
+  border-radius: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+}
+
+.history-reward {
+  font-weight: 600;
+  color: #185a9d;
+}
+
+.history-date {
+  color: #888;
+  font-size: 0.98rem;
+}
+
+.history-status {
+  font-weight: 600;
+  border-radius: 0.7rem;
+  padding: 0.2rem 0.8rem;
+  color: #fff;
+}
+
+.history-status.Delivered { background: #43cea2; }
+.history-status.Pending { background: #f7971e; }
+
+.view-delivery-btn {
+  background: #43cea2;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.3rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.view-delivery-btn[disabled] {
+  background: #b2bec3;
+  cursor: not-allowed;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(24, 90, 157, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  padding: 2rem 2.5rem;
+  min-width: 320px;
+  max-width: 90vw;
+  position: relative;
+  animation: pop-in 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #185a9d;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #43cea2;
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.no-results {
+  text-align: center;
+  color: #888;
+  padding: 1rem 0;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .redeempoints-container {
+    padding: 1rem 0.5rem;
+  }
+  .rewards-list {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .redeempoints-filters {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}

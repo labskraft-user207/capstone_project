@@ -1,0 +1,59 @@
+<header class="dashboard-header">
+  <div class="logo">Store Admin Panel</div>
+  <nav class="dashboard-nav">
+    <a href="#" class="nav-link active">Admin Home</a>
+    <a href="#" class="nav-link">Rewards</a>
+    <a href="#" class="nav-link">Users</a>
+    <a href="#" class="nav-link">Reports</a>
+  </nav>
+  <button class="logout-btn" [routerLink]="['/login']">Logout</button>
+</header>
+
+<main class="dashboard-main">
+  <section class="widgets-grid">
+    <div class="widget login-admin">
+      <h3>Login to Admin Panel</h3>
+      <button class="action-btn" [routerLink]="['/login']">Login</button>
+      <p>Access admin features securely</p>
+    </div>
+    <div class="widget manage-rewards">
+      <h3>Create &amp; Manage Rewards</h3>
+      <button class="action-btn" [routerLink]="['/create-manage-rewards']">Manage Rewards</button>
+      <p>Add, edit, or remove rewards</p>
+    </div>
+    <div class="widget set-points">
+      <h3>Set Point Requirements</h3>
+      <button class="action-btn" [routerLink]="['/set-point-requirements']">Set Requirements</button>
+      <p>Define points needed for rewards</p>
+    </div>
+    <div class="widget set-availability">
+      <h3>Set Reward Availability</h3>
+      <button class="action-btn" [routerLink]="['/set-reward-availability']">Set Status</button>
+      <p>Enable or disable rewards</p>
+    </div>
+    <div class="widget view-users">
+      <h3>View All Users &amp; Points</h3>
+      <button class="action-btn" [routerLink]="['/view-all-users-points-details']">View Users</button>
+      <p>See user list and their points</p>
+    </div>
+    <div class="widget assign-bonus">
+      <h3>Assign Bonus Points</h3>
+      <button class="action-btn" [routerLink]="['/assign-bonus-points']">Assign Points</button>
+      <p>Manually add bonus points</p>
+    </div>
+    <div class="widget set-rules">
+      <h3>Set Point Accumulation Rules</h3>
+      <button class="action-btn" [routerLink]="['/setpoint-accumulation-rules']">Set Rules</button>
+      <p>e.g., 1 point per ₹100 spent</p>
+    </div>
+    <div class="widget export-report">
+      <h3>Export Engagement Report</h3>
+      <button class="action-btn" [routerLink]="['/export-engagement-report']">Export CSV</button>
+      <p>Download customer engagement data</p>
+    </div>
+  </section>
+</main>
+
+<footer class="dashboard-footer">
+  &copy; 2024 Loyalty Management System &mdash; Store Admin Panel
+</footer>
